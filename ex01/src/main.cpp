@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Phonebook.class.hpp"
-#include "Contact.class.hpp"
+#include "Phonebook.hpp"
+#include "Contact.hpp"
 #include <iostream>
 #include <cstring>
 
@@ -41,7 +41,10 @@ int main(void)
 		if (!input.compare("ADD"))
 			phonebook.addContact();
 		else if (!input.compare("SEARCH"))
-			phonebook.displayContacts();
+    {
+      phonebook.displayContacts();
+      phonebook.displayConctact(); 
+    }
 		else if (!input.compare("EXIT"))
 		{
 			std::cout << "Quitting program" << std::endl;

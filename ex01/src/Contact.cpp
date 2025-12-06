@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.class.cpp                                  :+:      :+:    :+:   */
+/*   Contact.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: egache <egache@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include <iostream>
-#include "Contact.class.hpp"
+#include "Contact.hpp"
 
 Contact::Contact(void)
 {
@@ -25,12 +25,6 @@ Contact::~Contact(void)
     return;
 }
 
-// void Contact::publicTest(void) const
-// {
-//     std::cout << "je suis une fonction contact test" << std::endl;
-//     return;
-// }
-
 void Contact::fillContact()
 {
 	while (this->_firstName.empty())
@@ -38,7 +32,7 @@ void Contact::fillContact()
 		std::cout << "Enter First Name" << std::endl;
 		std::getline(std::cin, this->_firstName);
 		if (this->_firstName.empty())
-			std::cout << "Empty field" << std::endl;
+			std::cout << "Error" << std::endl << "Empty field. Try again" << std::endl << std::endl;
 	}
     std::cout << "First Name : " << this->_firstName << std::endl;
 
@@ -47,7 +41,7 @@ void Contact::fillContact()
 		std::cout << "Enter Last Name" << std::endl;
 		std::getline(std::cin, this->_lastName);
 		if (this->_lastName.empty())
-			std::cout << "Empty field" << std::endl;
+			std::cout << "Error" << std::endl << "Empty field. Try again" << std::endl << std::endl;
 	}
 	std::cout << "Last Name : " << this->_lastName << std::endl;
 
@@ -56,7 +50,7 @@ void Contact::fillContact()
 		std::cout << "Enter Nick Name" << std::endl;
 		std::getline(std::cin, this->_nickName);
 		if (this->_nickName.empty())
-			std::cout << "Empty field" << std::endl;
+			std::cout << "Error" << std::endl << "Empty field. Try again" << std::endl << std::endl;
 	}
     std::cout << "Nick Name : " << this->_nickName << std::endl;
 
@@ -65,7 +59,7 @@ void Contact::fillContact()
 		std::cout << "Enter Phone Number" << std::endl;
 		std::getline(std::cin, this->_phoneNumber);
 		if (this->_phoneNumber.empty())
-			std::cout << "Empty field" << std::endl;
+			std::cout << "Error" << std::endl << "Empty field. Try again" << std::endl << std::endl;
 	}
     std::cout << "Phone Number : " << this->_phoneNumber << std::endl;
 
@@ -74,11 +68,20 @@ void Contact::fillContact()
 		std::cout << "Enter Darkest Secret" << std::endl;
 		std::getline(std::cin, this->_darkestSecret);
 		if (this->_darkestSecret.empty())
-			std::cout << "Empty field" << std::endl;
+			std::cout << "Error" << std::endl << "Empty field. Try again" << std::endl << std::endl;
 	}
 	std::cout << "Darkest Secret : " << this->_darkestSecret << std::endl;
 	return ;
 
+}
+
+void Contact::emptyContact()
+{
+	this->_firstName = "";
+	this->_lastName = "";
+	this->_nickName = "";
+	this->_phoneNumber = "";
+	this->_darkestSecret = "";
 }
 
 std::string Contact::getFirstName() const
@@ -106,11 +109,10 @@ std::string Contact::getDarkestSecret() const
 	return (this->_darkestSecret);
 }
 
-void Contact::emptyContact()
+std::string Contact::truncateStr(std::string str) const
 {
-	this->_firstName = "";
-	this->_lastName = "";
-	this->_nickName = "";
-	this->_phoneNumber = "";
-	this->_darkestSecret = "";
+  if (str.length() > 10)
+    return str.substr(0, 9) + ".";
+  return str;
 }
+

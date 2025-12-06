@@ -11,7 +11,8 @@
 /* ************************************************************************** */
 
 #include <iostream>
-#include "Phonebook.class.hpp"
+#include <iomanip> //library for setw
+#include "Phonebook.hpp"
 
 Phonebook::Phonebook(void)
 {
@@ -47,8 +48,37 @@ void Phonebook::addContact()
 void Phonebook::displayContacts() const
 {
 	for(int i = 0; i < this->_added; i++)
-		std::cout << "| " << i << " | "
-		<< this->contacts[i].getFirstName() << " | "
-		<< this->contacts[i].getLastName() << " | "
-		<< this->contacts[i].getNickName() << " |" << std::endl;
+  {   
+    std::cout << "|";
+    std::cout << std::setw(10) << std::right << i;
+    std::cout << "|";
+    std::cout << std::setw(10) << std::right << this->contacts[i].truncateStr(this->contacts[i].getFirstName());
+    std::cout << "|";
+    std::cout << std::setw(10) << std::right << this->contacts[i].truncateStr(this->contacts[i].getLastName());
+    std::cout << "|";
+    std::cout << std::setw(10) << std::right << this->contacts[i].truncateStr(this->contacts[i].getNickName());
+    std::cout << "|" << std::endl;
+  }
+}
+
+void Phonebook::displayConctact() const
+{ 
+  int i;
+
+  while (1)
+  {  
+    std::cout << "Enter index of entry to display (Value between 0 - 8)" << std::endl;
+    std::cin >> i;
+    if (!this->contacts[i].getFirstName().empty())
+    {
+      std::cout << this->contacts[i].getFirstName() << std::endl;
+      std::cout << this->contacts[i].getLastName() << std::endl;
+      std::cout << this->contacts[i].getNickName() << std::endl;
+      std::cout << this->contacts[i].getPhoneNumber() << std::endl;
+      std::cout << this->contacts[i].getDarkestSecret() << std::endl;
+      return ;
+    }
+    else
+      std::cout << "Error" << std::endl << "Wrong value or contact doesn't exist" << std::endl;
+  }
 }

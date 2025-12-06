@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.class.hpp                                  :+:      :+:    :+:   */
+/*   Contact.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: egache <egache@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_CLASS_HPP
-#define CONTACT_CLASS_HPP
+#ifndef CONTACT_HPP
+#define CONTACT_HPP
 #include <iostream>
 
 
@@ -30,6 +30,13 @@ std::string getLastName(void) const;
 std::string getNickName(void) const;
 std::string getPhoneNumber(void) const;
 std::string getDarkestSecret(void) const;
+// void setFirstName(std::string str);
+// void setLastNametName(std::string str);
+// void setNickName(std::string str);
+// void setPhoneNumber(std::string str);
+// void setDarkestSecret(std::string str);
+
+std::string truncateStr(std::string str) const;
 
 
 private:
