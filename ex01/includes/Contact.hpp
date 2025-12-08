@@ -23,6 +23,10 @@ Contact(void);
 ~Contact(void);
 
 void fillContact();
+bool phoneIsDigit();
+bool strIsAlpha(std::string str);
+bool strIsAlphaOrSpace(std::string str);
+bool strIsAlnum(std::string str);
 void emptyContact();
 
 std::string getFirstName(void) const;

@@ -25,6 +25,39 @@ Contact::~Contact(void)
     return;
 }
 
+bool Contact::phoneIsDigit()
+{
+  for (int i = 0; this->_phoneNumber[i]; i++)
+  {
+    if (!std::isdigit(this->_phoneNumber[i]))
+        return false;
+  }
+  return true;
+}
+
+bool Contact::strIsAlpha(std::string str)
+{
+  for (int i = 0; str[i]; i++)
+  {
+    if (!std::isalpha(str[i]))
+        return false;
+  }
+  return true;
+}
+
+bool Contact::strIsAlphaOrSpace(std::string str)
+{
+  for (int i = 0; str[i]; i++)
+  {
+    if (!std::isalpha(str[i]))
+    {
+      if (str[i] != ' ' && str[i] != '.')
+        return false;
+    }
+  }
+  return true;
+}
+
 void Contact::fillContact()
 {
 	while (this->_firstName.empty())
@@ -33,8 +66,13 @@ void Contact::fillContact()
 		std::getline(std::cin, this->_firstName);
 		if (this->_firstName.empty())
 			std::cout << "Error" << std::endl << "Empty field. Try again" << std::endl << std::endl;
+    else if (!strIsAlpha(this->_firstName))
+    {
+      this->_firstName.clear();
+			std::cout << "Error" << std::endl << "Non alphabetical characters. Try again" << std::endl << std::endl;
+    }
 	}
-    std::cout << "First Name : " << this->_firstName << std::endl;
+  //std::cout << "First Name : " << this->_firstName << std::endl;
 
 	while (this->_lastName.empty())
 	{
@@ -42,8 +80,13 @@ void Contact::fillContact()
 		std::getline(std::cin, this->_lastName);
 		if (this->_lastName.empty())
 			std::cout << "Error" << std::endl << "Empty field. Try again" << std::endl << std::endl;
+    else if (!strIsAlpha(this->_lastName))
+    {
+      this->_lastName.clear();
+			std::cout << "Error" << std::endl << "Non alphabetical characters. Try again" << std::endl << std::endl;
+    }
 	}
-	std::cout << "Last Name : " << this->_lastName << std::endl;
+	//std::cout << "Last Name : " << this->_lastName << std::endl;
 
 	while (this->_nickName.empty())
 	{
@@ -52,7 +95,7 @@ void Contact::fillContact()
 		if (this->_nickName.empty())
 			std::cout << "Error" << std::endl << "Empty field. Try again" << std::endl << std::endl;
 	}
-    std::cout << "Nick Name : " << this->_nickName << std::endl;
+  //std::cout << "Nick Name : " << this->_nickName << std::endl;
 
 	while (this->_phoneNumber.empty())
 	{
@@ -60,8 +103,18 @@ void Contact::fillContact()
 		std::getline(std::cin, this->_phoneNumber);
 		if (this->_phoneNumber.empty())
 			std::cout << "Error" << std::endl << "Empty field. Try again" << std::endl << std::endl;
+    else if (!phoneIsDigit())
+    {
+      this->_phoneNumber.clear();
+			std::cout << "Error" << std::endl << "Non numeric characters. Try again" << std::endl << std::endl;
+    }
+    else if (this->_phoneNumber.length() != 10)
+    {
+      this->_phoneNumber.clear();
+			std::cout << "Error" << std::endl << "Enter a valid phone number (10 characters). Try again" << std::endl << std::endl;
+    }
 	}
-    std::cout << "Phone Number : " << this->_phoneNumber << std::endl;
+  //std::cout << "Phone Number : " << this->_phoneNumber << std::endl;
 
 	while (this->_darkestSecret.empty())
 	{
@@ -69,8 +122,13 @@ void Contact::fillContact()
 		std::getline(std::cin, this->_darkestSecret);
 		if (this->_darkestSecret.empty())
 			std::cout << "Error" << std::endl << "Empty field. Try again" << std::endl << std::endl;
+    else if (!strIsAlphaOrSpace(this->_darkestSecret))
+    {
+      this->_darkestSecret.clear();
+			std::cout << "Error" << std::endl << "Word or sentences only. Try again" << std::endl << std::endl;
+    }
 	}
-	std::cout << "Darkest Secret : " << this->_darkestSecret << std::endl;
+	//std::cout << "Darkest Secret : " << this->_darkestSecret << std::endl;
 	return ;
 
 }

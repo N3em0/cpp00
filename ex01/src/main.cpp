@@ -18,14 +18,16 @@
 
 /*
 ADD
-	- Proteger empty field
-		- Comment supprimer tous les autres fields du tab ?
-
+  - Parsing : 
+    - Phonebook : Only digit
+    - Names & darkest : Only alpha
+    - Nickname : Anything
 SEARCH
-	- Chaque element doit avoir une taille de 10
-		comment fixer cette valeur
-	- Crop si la taille du texte depasse les 10 + ajouter '.' sur le 10eme char
-		- Exemple : coucahciycoe -> coucahciy.
+  - single contact
+    - Protect valeur d'entrée. Ne pouvoir rentrer que 0 - 8
+GLOBAL
+  - CTRL + D issue
+
 */
 
 

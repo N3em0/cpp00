@@ -12,6 +12,7 @@
 
 #include <iostream>
 #include <iomanip> //library for setw
+#include <cstdlib>
 #include "Phonebook.hpp"
 
 Phonebook::Phonebook(void)
@@ -42,7 +43,7 @@ void Phonebook::addContact()
 		this->contacts[this->_added].fillContact();
 		this->_added++;
 	}
-	std::cout << "index value : [" << this->_added << "]" << std::endl;
+	//std::cout << "index value : [" << this->_added << "]" << std::endl;
 }
 
 void Phonebook::displayContacts() const
@@ -63,12 +64,26 @@ void Phonebook::displayContacts() const
 
 void Phonebook::displayConctact() const
 { 
+  std::string input;
   int i;
 
   while (1)
   {  
     std::cout << "Enter index of entry to display (Value between 0 - 8)" << std::endl;
-    std::cin >> i;
+    getline(std::cin, input);
+    if (input.length() != 1)
+    {
+      input.clear();
+      std::cout << "Error" << std::endl << "Only 1 digit value. Try again" << std::endl;
+      continue ;
+    }
+    if (!std::isdigit(input[0]))
+    {
+      input.clear();
+      std::cout << "Error" << std::endl << "Only positives digitals values. Try again" << std::endl;
+      continue ;
+    }
+    i = input[0] - 48;
     if (!this->contacts[i].getFirstName().empty())
     {
       std::cout << this->contacts[i].getFirstName() << std::endl;
@@ -79,6 +94,6 @@ void Phonebook::displayConctact() const
       return ;
     }
     else
-      std::cout << "Error" << std::endl << "Wrong value or contact doesn't exist" << std::endl;
+      std::cout << "Error" << std::endl << "Contact doesn't exist. Try again" << std::endl;
   }
 }
