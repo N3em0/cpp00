@@ -1,3 +1,4 @@
+
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
@@ -10,43 +11,41 @@
 #                                                                              #
 # **************************************************************************** #
 
-HEADER := \
-
-# HEAD		:=	\
-# include	\
 
 NAME	:=	megaphone
 
-SRC		:=	\
-megaphone.cpp
-
+SRC_DIR := src
 BUILD_DIR	:=	.build
-OBJ			:=	$(SRC:%.c=$(BUILD_DIR)/%.o)
+#INC_DIR := includes
+
+SRC_FILES		:=	\
+Megaphone.cpp \
+
+SRC		:=	$(addprefix $(SRC_DIR)/, $(SRC_FILES))
+
+OBJ			:=	$(SRC:$(SRC_DIR)/%.cpp=$(BUILD_DIR)/%.o)
 DEP			:=	$(OBJ:%.o=.d)
 
 CXX			:=	c++
 CXXFLAGS	:=  -Wall -Wextra -Werror -std=c++98
-INCLUDE		:=	$(addprefix -I,$(HEAD)) -MMD -MP
-
-DIR_DUP		=	mkdir -p $(@D)
+#INCLUDE		:=	-I$(INC_DIR) -MMD -MP
 
 MAKEFLAGS	+=	--no-print-directory
 
 RM			:=	rm -f
 RMF			:=	rm -rf
+DIR_DUP		=	mkdir -p $(@D)
 
 all	:	$(NAME)
 
-$(NAME)	:	$(OBJ) $(LIBS_TARGET) $(HEADER)
-			$(CC) $(CFLAGS) $(LIBDIR) $(OBJ) $(LIBNAME) -o $(NAME)
+$(NAME)	:	$(OBJ)
+			$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
 
-$(LIBS_TARGET)	: FORCE
-			@$(MAKE) -C $(@D)
 
-$(BUILD_DIR)/%.o:	%.c $(HEADER)
+$(BUILD_DIR)/%.o:	$(SRC_DIR)/%.cpp 
 			@echo "Recompilation de $@"
 			$(DIR_DUP)
-			$(CC) $(CFLAGS) $(INCLUDE) -c -o $@ $<
+			$(CXX) $(CXXFLAGS) -c -o $@ $<
 
 -include $(DEP)
 
