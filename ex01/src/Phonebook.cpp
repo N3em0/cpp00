@@ -1,18 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Phonebook.class.cpp                                :+:      :+:    :+:   */
+/*   Phonebook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: egache <egache@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 17:21:57 by teatime           #+#    #+#             */
-/*   Updated: 2025/12/03 20:08:21 by egache           ###   ########.fr       */
+/*   Updated: 2025/12/09 11:43:57 by egache           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <iomanip> //library for setw
-#include <cstdlib>
 #include "Phonebook.hpp"
 
 Phonebook::Phonebook(void)
@@ -43,13 +42,12 @@ void Phonebook::addContact()
 		this->contacts[this->_added].fillContact();
 		this->_added++;
 	}
-	//std::cout << "index value : [" << this->_added << "]" << std::endl;
 }
 
 void Phonebook::displayContacts() const
 {
 	for(int i = 0; i < this->_added; i++)
-  {   
+  {
     std::cout << "|";
     std::cout << std::setw(10) << std::right << i;
     std::cout << "|";
@@ -63,12 +61,12 @@ void Phonebook::displayContacts() const
 }
 
 void Phonebook::displayConctact() const
-{ 
+{
   std::string input;
   int i;
 
   while (1)
-  {  
+  {
     std::cout << "Enter index of entry to display (Value between 0 - 8)" << std::endl;
     getline(std::cin, input);
     if (input.length() != 1)
@@ -84,7 +82,7 @@ void Phonebook::displayConctact() const
       continue ;
     }
     i = input[0] - 48;
-    if (!this->contacts[i].getFirstName().empty())
+    if (i < 8 && !this->contacts[i].getFirstName().empty())
     {
       std::cout << this->contacts[i].getFirstName() << std::endl;
       std::cout << this->contacts[i].getLastName() << std::endl;

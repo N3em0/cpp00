@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: teatime <teatime@student.42.fr>            +#+  +:+       +#+         #
+#    By: egache <egache@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/26 14:51:38 by egache            #+#    #+#              #
-#    Updated: 2025/11/14 17:05:23 by teatime          ###   ########.fr        #
+#    Updated: 2025/12/09 11:38:04 by egache           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ OBJ			:=	$(SRC:$(SRC_DIR)/%.cpp=$(BUILD_DIR)/%.o)
 DEP			:=	$(OBJ:%.o=.d)
 
 CXX			:=	c++
-CXXFLAGS	:=  -Wall -Wextra -Werror -std=c++98
+CXXFLAGS	:=  -Wall -Wextra -Werror -g3 -std=c++98
 INCLUDE		:=	-I$(INC_DIR) -MMD -MP
 
 MAKEFLAGS	+=	--no-print-directory
@@ -43,7 +43,7 @@ $(NAME)	:	$(OBJ)
 			$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
 
 
-$(BUILD_DIR)/%.o:	$(SRC_DIR)/%.cpp 
+$(BUILD_DIR)/%.o:	$(SRC_DIR)/%.cpp
 			@echo "Recompilation de $@"
 			$(DIR_DUP)
 			$(CXX) $(CXXFLAGS) $(INCLUDE) -c -o $@ $<

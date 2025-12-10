@@ -6,7 +6,7 @@
 /*   By: egache <egache@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 17:24:24 by teatime           #+#    #+#             */
-/*   Updated: 2025/12/03 17:56:53 by egache           ###   ########.fr       */
+/*   Updated: 2025/12/09 12:11:03 by egache           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,9 @@
 #include <iostream>
 #include <cstring>
 
-
 /*
-ADD
-  - Parsing : 
-    - Phonebook : Only digit
-    - Names & darkest : Only alpha
-    - Nickname : Anything
-SEARCH
-  - single contact
-    - Protect valeur d'entrée. Ne pouvoir rentrer que 0 - 8
 GLOBAL
   - CTRL + D issue
-
 */
 
 
@@ -45,7 +35,7 @@ int main(void)
 		else if (!input.compare("SEARCH"))
     {
       phonebook.displayContacts();
-      phonebook.displayConctact(); 
+      phonebook.displayConctact();
     }
 		else if (!input.compare("EXIT"))
 		{
