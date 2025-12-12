@@ -23,13 +23,13 @@ GLOBAL
 
 int main(void)
 {
-    Phonebook	phonebook;
+  Phonebook	phonebook;
 	std::string input;
 
-	while (1)
+	std::cout << "Enter an action : ADD, SEARCH or EXIT" << std::endl;
+	while (getline(std::cin, input))
 	{
 		std::cout << "Enter an action : ADD, SEARCH or EXIT" << std::endl;
-		getline(std::cin, input);
 		if (!input.compare("ADD"))
 			phonebook.addContact();
 		else if (!input.compare("SEARCH"))
@@ -38,15 +38,13 @@ int main(void)
       phonebook.displayConctact();
     }
 		else if (!input.compare("EXIT"))
-		{
-			std::cout << "Quitting program" << std::endl;
-			return 0;
-		}
+		  break ;
 		else
 		{
-			std::cout << "Wrong input" << std::endl;
+			// std::cout << "Wrong input" << std::endl;
 			continue ;
 		}
 	}
+	std::cout << "Quitting program" << std::endl;
 	return 0;
 }

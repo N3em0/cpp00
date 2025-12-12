@@ -16,7 +16,6 @@
 
 Phonebook::Phonebook(void)
 {
-    std::cout << "Phonebook constructor appelé" << std::endl;
 	this->_added = 0;
 	this->_oldest = 0;
     return;
@@ -24,7 +23,6 @@ Phonebook::Phonebook(void)
 
 Phonebook::~Phonebook(void)
 {
-    std::cout << "Phonebook destructor appelé" << std::endl;
     return;
 }
 
