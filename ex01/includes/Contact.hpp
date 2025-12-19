@@ -26,7 +26,6 @@ void fillContact();
 bool phoneIsDigit();
 bool strIsAlpha(std::string str);
 bool strIsAlphaOrSpace(std::string str);
-bool strIsAlnum(std::string str);
 void emptyContact();
 
 std::string getFirstName(void) const;
@@ -34,11 +33,6 @@ std::string getLastName(void) const;
 std::string getNickName(void) const;
 std::string getPhoneNumber(void) const;
 std::string getDarkestSecret(void) const;
-// void setFirstName(std::string str);
-// void setLastNametName(std::string str);
-// void setNickName(std::string str);
-// void setPhoneNumber(std::string str);
-// void setDarkestSecret(std::string str);
 
 std::string truncateStr(std::string str) const;
 

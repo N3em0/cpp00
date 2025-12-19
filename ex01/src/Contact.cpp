@@ -100,13 +100,13 @@ void Contact::fillContact()
 			std::cout << "Error" << std::endl << "Empty field. Try again" << std::endl << std::endl;
 		else if (!phoneIsDigit())
 		{
-		this->_phoneNumber.clear();
-				std::cout << "Error" << std::endl << "Non numeric characters. Try again" << std::endl << std::endl;
+			this->_phoneNumber.clear();
+			std::cout << "Error" << std::endl << "Non numeric characters. Try again" << std::endl << std::endl;
 		}
 		else if (this->_phoneNumber.length() != 10)
 		{
-		this->_phoneNumber.clear();
-				std::cout << "Error" << std::endl << "Enter a valid phone number (10 characters). Try again" << std::endl << std::endl;
+			this->_phoneNumber.clear();
+			std::cout << "Error" << std::endl << "Enter a valid phone number (10 characters). Try again" << std::endl << std::endl;
 		}
 	}
 

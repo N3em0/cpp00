@@ -11,40 +11,42 @@
 /* ************************************************************************** */
 
 #include "Phonebook.hpp"
-#include "Contact.hpp"
-#include <iostream>
 #include <cstring>
+#include <iostream>
 
 /*
 GLOBAL
   - CTRL + D issue
 */
 
-
 int main(void)
 {
-  Phonebook	phonebook;
-	std::string input;
+  Phonebook phonebook;
+  std::string input;
 
-	std::cout << "Enter an action : ADD, SEARCH or EXIT" << std::endl;
-	while (getline(std::cin, input))
-	{
-		std::cout << "Enter an action : ADD, SEARCH or EXIT" << std::endl;
-		if (!input.compare("ADD"))
-			phonebook.addContact();
-		else if (!input.compare("SEARCH"))
+  while (1)
+  {
+    std::cout << "Enter an action : ADD, SEARCH or EXIT" << std::endl;
+    if (!getline(std::cin, input))
+      break;
+    if (!input.compare("ADD"))
+      phonebook.addContact();
+    else if (!input.compare("SEARCH"))
     {
+      if (phonebook.contacts[0].getFirstName().empty())
+      {
+        std::cout << "Error" << std::endl
+                  << "No contacts has been registered" << std::endl;
+        continue;
+      }
       phonebook.displayContacts();
       phonebook.displayConctact();
     }
-		else if (!input.compare("EXIT"))
-		  break ;
-		else
-		{
-			// std::cout << "Wrong input" << std::endl;
-			continue ;
-		}
-	}
-	std::cout << "Quitting program" << std::endl;
-	return 0;
+    else if (!input.compare("EXIT"))
+      break;
+    else
+      continue;
+  }
+  std::cout << "Quitting program" << std::endl;
+  return 0;
 }

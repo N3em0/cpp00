@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 
-NAME	:=	ouiallezdaccord
+NAME	:=	The_Job_Of_Your_Dreams
 
 SRC_DIR := src
 BUILD_DIR	:=	.build

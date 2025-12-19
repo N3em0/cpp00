@@ -14,7 +14,7 @@ int main(int argc, char **argv)
     {
         input = argv[i];
         transform(input.begin(), input.end(), input.begin(), ::toupper);
-        std::cout << input + " ";
+        std::cout << input;
     }
     std::cout << std::endl;
     return (0);
