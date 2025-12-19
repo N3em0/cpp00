@@ -18,20 +18,20 @@
 class Phonebook
 {
 public:
-    Contact contacts[8];
+  Contact contacts[8];
 
-    Phonebook(void);
-    ~Phonebook(void);
+  Phonebook(void);
+  ~Phonebook(void);
 
-  void	displayContacts(void) const;
-  void  displayConctact(void) const;
-	void	addContact(void);
+  void displayContacts(void) const;
+  void displayConctact(void) const;
+  void addContact(void);
 
 private:
-	int _added;
-	int _oldest;
+  int _added;
+  int _oldest;
 
-    void _privateTest(void) const;
+  void _privateTest(void) const;
 };
 
 #endif

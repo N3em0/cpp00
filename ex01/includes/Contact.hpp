@@ -14,36 +14,31 @@
 #define CONTACT_HPP
 #include <iostream>
 
-
 class Contact
 {
 public:
+  Contact(void);
+  ~Contact(void);
 
-Contact(void);
-~Contact(void);
+  void fillContact();
+  bool phoneIsDigit();
+  bool strIsAlpha(std::string str);
+  bool strIsAlphaOrSpace(std::string str);
 
-void fillContact();
-bool phoneIsDigit();
-bool strIsAlpha(std::string str);
-bool strIsAlphaOrSpace(std::string str);
-void emptyContact();
+  std::string getFirstName(void) const;
+  std::string getLastName(void) const;
+  std::string getNickName(void) const;
+  std::string getPhoneNumber(void) const;
+  std::string getDarkestSecret(void) const;
 
-std::string getFirstName(void) const;
-std::string getLastName(void) const;
-std::string getNickName(void) const;
-std::string getPhoneNumber(void) const;
-std::string getDarkestSecret(void) const;
-
-std::string truncateStr(std::string str) const;
-
+  std::string truncateStr(std::string str) const;
 
 private:
-
-std::string _firstName;
-std::string _lastName;
-std::string _nickName;
-std::string _phoneNumber;
-std::string _darkestSecret;
+  std::string _firstName;
+  std::string _lastName;
+  std::string _nickName;
+  std::string _phoneNumber;
+  std::string _darkestSecret;
 };
 
 #endif

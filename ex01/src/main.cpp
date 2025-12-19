@@ -11,13 +11,7 @@
 /* ************************************************************************** */
 
 #include "Phonebook.hpp"
-#include <cstring>
 #include <iostream>
-
-/*
-GLOBAL
-  - CTRL + D issue
-*/
 
 int main(void)
 {
