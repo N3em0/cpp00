@@ -12,7 +12,6 @@
 
 #include "Phonebook.hpp"
 #include <iomanip> //library for setw
-#include <iostream>
 
 Phonebook::Phonebook(void)
 {
@@ -59,7 +58,7 @@ void Phonebook::displayContacts() const
   }
 }
 
-void Phonebook::displayConctact() const
+void Phonebook::displayContact() const
 {
   std::string input;
   int i;

@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "Phonebook.hpp"
-#include <iostream>
 
 int main(void)
 {
@@ -34,7 +33,7 @@ int main(void)
         continue;
       }
       phonebook.displayContacts();
-      phonebook.displayConctact();
+      phonebook.displayContact();
     }
     else if (!input.compare("EXIT"))
       break;

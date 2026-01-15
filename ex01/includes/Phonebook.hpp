@@ -24,7 +24,7 @@ public:
   ~Phonebook(void);
 
   void displayContacts(void) const;
-  void displayConctact(void) const;
+  void displayContact(void) const;
   void addContact(void);
 
 private:
