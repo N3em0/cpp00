@@ -30,8 +30,6 @@ public:
 private:
   int _added;
   int _oldest;
-
-  void _privateTest(void) const;
 };
 
 #endif

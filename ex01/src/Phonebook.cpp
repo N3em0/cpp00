@@ -85,11 +85,16 @@ void Phonebook::displayContact() const
     i = input[0] - 48;
     if (i < 8 && !this->contacts[i].getFirstName().empty())
     {
-      std::cout << this->contacts[i].getFirstName() << std::endl;
-      std::cout << this->contacts[i].getLastName() << std::endl;
-      std::cout << this->contacts[i].getNickName() << std::endl;
-      std::cout << this->contacts[i].getPhoneNumber() << std::endl;
-      std::cout << this->contacts[i].getDarkestSecret() << std::endl;
+      std::cout << "First name     : " << this->contacts[i].getFirstName()
+                << std::endl;
+      std::cout << "Last name      : " << this->contacts[i].getLastName()
+                << std::endl;
+      std::cout << "Nickname       : " << this->contacts[i].getNickName()
+                << std::endl;
+      std::cout << "Phone number   : " << this->contacts[i].getPhoneNumber()
+                << std::endl;
+      std::cout << "Darkest Secret : " << this->contacts[i].getDarkestSecret()
+                << std::endl;
       return;
     }
     else

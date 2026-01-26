@@ -28,7 +28,6 @@ DEP			:=	$(OBJ:%.o=.d)
 
 CXX			:=	c++
 CXXFLAGS	:=  -Wall -Wextra -Werror -std=c++98
-#INCLUDE		:=	-I$(INC_DIR) -MMD -MP
 
 MAKEFLAGS	+=	--no-print-directory
 
