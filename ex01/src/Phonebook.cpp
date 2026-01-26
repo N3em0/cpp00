@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "Phonebook.hpp"
-#include <iomanip> //library for setw
+#include <iomanip> //setw
 
 Phonebook::Phonebook(void)
 {
