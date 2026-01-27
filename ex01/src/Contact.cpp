@@ -49,12 +49,22 @@ bool Contact::strIsAlphaOrSpace(std::string str)
   return true;
 }
 
+void Contact::clearContact()
+{
+  this->_firstName.clear();
+  this->_lastName.clear();
+  this->_nickName.clear();
+  this->_phoneNumber.clear();
+  this->_darkestSecret.clear();
+}
+
 void Contact::fillContact()
 {
   while (this->_firstName.empty())
   {
     std::cout << "Enter First Name" << std::endl;
-    std::getline(std::cin, this->_firstName);
+    if (!std::getline(std::cin, this->_firstName))
+      return;
     if (this->_firstName.empty())
       std::cout << "Error" << std::endl
                 << "Empty field. Try again" << std::endl
@@ -71,7 +81,8 @@ void Contact::fillContact()
   while (this->_lastName.empty())
   {
     std::cout << "Enter Last Name" << std::endl;
-    std::getline(std::cin, this->_lastName);
+    if (!std::getline(std::cin, this->_lastName))
+      return;
     if (this->_lastName.empty())
       std::cout << "Error" << std::endl
                 << "Empty field. Try again" << std::endl
@@ -88,7 +99,8 @@ void Contact::fillContact()
   while (this->_nickName.empty())
   {
     std::cout << "Enter Nick Name" << std::endl;
-    std::getline(std::cin, this->_nickName);
+    if (!std::getline(std::cin, this->_nickName))
+      return;
     if (this->_nickName.empty())
       std::cout << "Error" << std::endl
                 << "Empty field. Try again" << std::endl
@@ -98,7 +110,8 @@ void Contact::fillContact()
   while (this->_phoneNumber.empty())
   {
     std::cout << "Enter Phone Number" << std::endl;
-    std::getline(std::cin, this->_phoneNumber);
+    if (!std::getline(std::cin, this->_phoneNumber))
+      return;
     if (this->_phoneNumber.empty())
       std::cout << "Error" << std::endl
                 << "Empty field. Try again" << std::endl
@@ -110,20 +123,13 @@ void Contact::fillContact()
                 << "Non numeric characters. Try again" << std::endl
                 << std::endl;
     }
-    else if (this->_phoneNumber.length() != 10)
-    {
-      this->_phoneNumber.clear();
-      std::cout << "Error" << std::endl
-                << "Enter a valid phone number (10 characters). Try again"
-                << std::endl
-                << std::endl;
-    }
   }
 
   while (this->_darkestSecret.empty())
   {
     std::cout << "Enter Darkest Secret" << std::endl;
-    std::getline(std::cin, this->_darkestSecret);
+    if (!std::getline(std::cin, this->_darkestSecret))
+      return;
     if (this->_darkestSecret.empty())
       std::cout << "Error" << std::endl
                 << "Empty field. Try again" << std::endl

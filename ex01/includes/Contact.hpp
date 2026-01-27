@@ -21,6 +21,7 @@ public:
   ~Contact(void);
 
   void fillContact();
+  void clearContact();
   bool phoneIsDigit();
   bool strIsAlpha(std::string str);
   bool strIsAlphaOrSpace(std::string str);

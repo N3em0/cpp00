@@ -20,7 +20,7 @@ int main(void)
   while (1)
   {
     std::cout << "Enter an action : ADD, SEARCH or EXIT" << std::endl;
-    if (!getline(std::cin, input))
+    if (!std::getline(std::cin, input))
       break;
     if (!input.compare("ADD"))
       phonebook.addContact();

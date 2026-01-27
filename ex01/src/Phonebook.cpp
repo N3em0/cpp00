@@ -28,6 +28,7 @@ void Phonebook::addContact()
   {
     if (this->_oldest == 8)
       this->_oldest = 0;
+    this->contacts[this->_oldest].clearContact();
     this->contacts[this->_oldest].fillContact();
     this->_oldest++;
   }
@@ -65,9 +66,10 @@ void Phonebook::displayContact() const
 
   while (1)
   {
-    std::cout << "Enter index of entry to display (Value between 0 - 8)"
+    std::cout << "Enter index of entry to display (Value between 0 - 7)"
               << std::endl;
-    getline(std::cin, input);
+    if (!getline(std::cin, input))
+      break;
     if (input.length() != 1)
     {
       input.clear();
@@ -79,7 +81,7 @@ void Phonebook::displayContact() const
     {
       input.clear();
       std::cout << "Error" << std::endl
-                << "Only positives digitals values. Try again" << std::endl;
+                << "Only positives digital values. Try again" << std::endl;
       continue;
     }
     i = input[0] - 48;
@@ -95,6 +97,7 @@ void Phonebook::displayContact() const
                 << std::endl;
       std::cout << "Darkest Secret : " << this->contacts[i].getDarkestSecret()
                 << std::endl;
+      input.clear();
       return;
     }
     else
